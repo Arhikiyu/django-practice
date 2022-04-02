@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>practice django</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello django</h1>
+    <p>{{message}}</p>
+    {% for comment in comments %}
+    <p>掲示板:{{comment.category}} 日時:{{comment.created_at}}</p>
+    {% endfor %}
+</body>
+
+</html>
