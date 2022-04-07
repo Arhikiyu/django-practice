@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends './base.html' %}
+{% block content %}
+<h1>お店一覧</h1>
 
-<head>
-    <meta charset="utf-8">
-    <title>Lunchmap</title>
-    <style>
-        body {
-            padding: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>お店一覧</h1>
-
-    {% for shop in object_list %}
-    <p>{{ shop.category.name }},{{ shop.name }}</p>
-    {% endfor %}
-</body>
-
-</html>
+{% for shop in object_list %}
+<p>{{ shop.category.name }},{{ shop.name }}</p>
+{% endfor %}
+{% endblock %}
