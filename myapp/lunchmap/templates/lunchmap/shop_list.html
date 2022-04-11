@@ -14,7 +14,7 @@
     <tr>
         <td>{{ shop.category.name }}</td>
         <td><a href='{% url "lunchmap:detail" shop.pk %}'>{{ shop.name }}</a></td>
-        <td>{{ shop.name }}</td>
+        <td>{{ shop.address }}</td>
     </tr>
 
     {% endfor %}
