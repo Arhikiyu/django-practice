@@ -1,0 +1,11 @@
+{% extends '../layout.html' %}
+
+{% block contemt %}
+<h1>ログイン</h1>
+<section class='common-form'>
+    {% if form.errors %}
+    <p class='error-msg'>パスワードが違います</p>
+    {% endif %}
+    
+{% endblock contemt %}
+
