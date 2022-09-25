@@ -8,7 +8,7 @@ from django.urls import reverse
 class Category(models.Model):
     name = models.CharField(max_length=255)
     author = models.ForeignKey(
-        'auth.User',
+        "auth.User",
         on_delete=models.CASCADE,
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -18,9 +18,17 @@ class Category(models.Model):
         return self.name
 
 
+class Comment(models.Model):
+    category = models.ForeignKey("Shop", on_delete=models.PROTECT, null=True)
+    txt = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.txt
+
+
 class Shop(models.Model):
     name = models.CharField(max_length=255)
-    #address = models.CharField(max_length=255)
+    # address = models.CharField(max_length=255)
     description = models.CharField(max_length=255, null=True)
     category = models.ForeignKey(
         Category,
@@ -36,15 +44,5 @@ class Shop(models.Model):
     def get_absolute_url(self):
         return reverse("lunchmap:detail", kwargs={"pk": self.pk})
 
-
-class Comment(models.Model):
-    category = models.ForeignKey(
-        Shop,
-        on_delete=models.PROTECT,
-        null=True
-
-    )
-    txt = models.CharField(max_length=255, null=True)
-
-    def __str__(self):
-        return self.txt
+    def comments(self):
+        return Comment.objects.filter(category=self)

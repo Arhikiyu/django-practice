@@ -5,10 +5,8 @@
     <p>{{shop.category.name}}</p>
     <p>{{shop.description}}</p>
     <h2>コメント</h2>
-    {% for comment in Comment  %}
-    {% if comment.category is shop.name  %}
+    {% for comment in shop.comments  %}
     <p>{{comment.txt}}</p>
-    {% endif %}
     {% endfor %}
 </div>
 <div>
