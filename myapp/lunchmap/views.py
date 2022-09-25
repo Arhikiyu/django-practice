@@ -5,6 +5,7 @@ from django.views import generic
 from pyrsistent import field
 from .models import Category, Shop, Comment
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, redirect, render
 
 
 class IndexView(generic.ListView):
@@ -32,6 +33,7 @@ class DeleteView(generic.edit.DeleteView):
 
 class CommentCreate(generic.CreateView):
     """コメント投稿ページのビュー"""
-    template_name = 'comment_form.html'
     model = Comment
+    success_url = reverse_lazy('lunchmap:index')
+    fields = '__all__'
     #form_class = CommentCreateForm

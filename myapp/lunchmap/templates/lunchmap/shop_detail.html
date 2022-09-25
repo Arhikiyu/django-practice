@@ -5,7 +5,7 @@
     <p>{{shop.category.name}}</p>
     <p>{{shop.description}}</p>
     <h2>コメント</h2>
-    {% for comment in shop.comments  %}
+    {% for comment in shop.comments %}
     <p>{{comment.txt}}</p>
     {% endfor %}
 </div>
@@ -13,6 +13,7 @@
     <a href="{% url 'lunchmap:index' %}">一覧</a>
     <a href="{% url 'lunchmap:update' shop.pk %}">編集</a>
     <a href="{% url 'lunchmap:delete' shop.pk %}">削除</a>
+    <a href="{% url 'lunchmap:comment_create' shop.pk %}">コメント投稿</a>
 </div>
 
 {% endblock %}
